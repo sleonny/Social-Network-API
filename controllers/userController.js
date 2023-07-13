@@ -58,13 +58,26 @@ const userController = {
       { $push: { friends: params.friendId } },
       { new: true, runValidators: true }
     )
-    .then(dbUserData => {
-      if (!dbUserData) {
-        return res.status(404).json({ message: 'No user exists w/ this ID' });
+      .then((dbUserData) => {
+        if (!dbUserData) {
+          return res.status(404).json({ message: "No user exists w/ this ID" });
         }
         res.json(dbUserData);
-    })
-    .catch(err => res.json(err));
+      })
+      .catch((err) => res.json(err));
   },
-  
+  addFriend({ params }, res) {
+    User.findOneAndUpdate(
+      { _id: params.userId },
+      { $push: { friends: params.friendId } },
+      { new: true, runValidators: true }
+    )
+      .then((dbUserData) => {
+        if (!dbUserData) {
+          return res.status(404).json({ message: "No user exists w/ this ID" });
+        }
+        res.json(dbUserData);
+      })
+      .catch((err) => res.json(err));
+  },
 };
