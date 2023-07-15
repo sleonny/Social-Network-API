@@ -18,7 +18,7 @@ const userController = {
         res.status(500).json(err);
       });
   },
-  getUserById({ params }, res) {
+  getUserByID({ params }, res) {
     User.findOne({ _id: params.id })
       .populate({
         path: "thoughts",
