@@ -8,7 +8,9 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(userRoutes, thoughtRoutes);
+
+app.use("/api/users", userRoutes);
+app.use("/api/thoughts", thoughtRoutes);
 
 db.once("open", () => {
   app.listen(PORT, () => {
