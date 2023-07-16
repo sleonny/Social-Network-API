@@ -80,13 +80,44 @@ const thoughtController = {
       .catch((err) => res.json(err));
   },
   removeReaction({ params }, res) {
-    Thought.findOneAndUpdate(
-      { _id: params.thoughtId },
-      { $pull: { reactions: { reactionId: params.reactionId } } },
-      { new: true }
-    )
-      .then((dbThoughtData) => res.json(dbThoughtData))
-      .catch((err) => res.json(err));
+    console.log(
+      `Thought ID: ${params.thoughtId}, Reaction ID: ${params.reactionId}`
+    );
+
+    Thought.findOne({ _id: params.thoughtId }).then((thought) => {
+      if (!thought) {
+        console.log(`No thought found with ID: ${params.thoughtId}`);
+        return res
+          .status(404)
+          .json({ message: "No thought found with this ID" });
+      }
+
+      const reactionExists = thought.reactions.some(
+        (reaction) => reaction.reactionId.toString() === params.reactionId
+      );
+      console.log(`Reaction Exists: ${reactionExists}`);
+
+      if (!reactionExists) {
+        console.log(`No reaction found with ID: ${params.reactionId}`);
+        return res
+          .status(404)
+          .json({ message: "No reaction found with this ID" });
+      }
+
+      return Thought.findOneAndUpdate(
+        { _id: params.thoughtId },
+        { $pull: { reactions: { reactionId: params.reactionId } } },
+        { new: true }
+      )
+        .then((dbThoughtData) => {
+          console.log("Reaction Deleted Successfully");
+          res.json({ dbThoughtData, message: "Reaction deleted successfully" });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    });
   },
 };
 
