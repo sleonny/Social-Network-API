@@ -31,7 +31,6 @@
 
   ## License
 
-  ![badge](https://img.shields.io/badge/license-MIT License-brightgreen)
   This application is covered by the MIT License license.
 
   ## Credits
