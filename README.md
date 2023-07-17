@@ -1,19 +1,53 @@
-# social-network-api
+# Social Network API
 
-## User Story
+## Description
 
-AS A social media startup
-I WANT an API for my social network that uses a NoSQL database
-SO THAT my website can handle large amounts of unstructured data
+    This app was built on the backend using NoSQL, specifically mongodb and mongoose, in order to provide API routes to a social network so that it may handle large amounts of unstructured data.
 
-## Acceptance Criteria
+## Table of Contents
 
-GIVEN a social network API
-WHEN I enter the command to invoke the application
-THEN my server is started and the Mongoose models are synced to the MongoDB database
-WHEN I open API GET routes in Insomnia for users and thoughts
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia
-THEN I am able to successfully create, update, and delete users and thoughts in my database
-WHEN I test API POST and DELETE routes in Insomnia
-THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
+- [Description](#description)
+- [Demonstration](#demonstration)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+  ## Demonstration
+
+  https://drive.google.com/file/d/11881e4B9TKCFRHaiKFDuwAxiRj25Asq-/view
+
+  ## Installation
+
+  To install this please clone the repository @ https://github.com/sleonny/social-network-api and simply node server.js to start the server on PORT 3000.
+
+  ## Usage
+
+  This app is inteded to be used to handle large amounts of unstructured data relating to the features and operation of a social network.
+
+  ## License
+
+  ## License
+
+  ![badge](https://img.shields.io/badge/license-MIT License-brightgreen)
+  This application is covered by the MIT License license.
+
+  ## Credits
+
+  MongoDB, Mongoose, Express.js, moment, w3 Schools, ChatGPT, askBCS
+
+  ## Tests
+
+  There are no tests at this time
+
+  ## How to Contribute
+
+  To contribute please clone the repository @ https://github.com/sleonny/social-network-api and submit a pull request. Thank you!
+
+  ## Questions?
+
+  Come see me on GitHub @ [sleonny](https://github.com/sleonny);
+  Or
+  Email me @ leonardmsean@gmail.com
